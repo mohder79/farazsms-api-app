@@ -24,7 +24,7 @@ Usage
 ```python
     
     pyinstaller --onefile --noconsole main.py
-```python
+```
 
     Load a CSV file using the "Load File" button.
 
