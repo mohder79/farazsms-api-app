@@ -11,35 +11,35 @@ This is a simple SMS sending system built in Python using the Tkinter GUI librar
 
 
 
-Usage
+# Usage
 
-    Run the application:
+Run the application:
 
 ```python
-    python main.py
+python main.py
 ```
 
-    Alternatively, you can generate a standalone executable (exe) file using PyInstaller. Open a terminal and run:
+Alternatively, you can generate a standalone executable (exe) file using PyInstaller. Open a terminal and run:
     
 ```python
     
-    pyinstaller --onefile --noconsole main.py
+pyinstaller --onefile --noconsole main.py
 ```
 
-    Load a CSV file using the "Load File" button.
+Load a CSV file using the "Load File" button.
 
-    Select a column and category for SMS recipients.
+Select a column and category for SMS recipients.
 
-    Enter your SMS message.
+Enter your SMS message.
 
-    Click the "Send Message" button to send SMS messages.
+Click the "Send Message" button to send SMS messages.
 
-    View the delivery status in the console or check details using the "Details" button.
+View the delivery status in the console or check details using the "Details" button.
 
-Configuration
+# Configuration
 
-    The API key for sending SMS messages is stored in the config.ini file. You can update it through the settings.
+The API key for sending SMS messages is stored in the config.ini file. You can update it through the settings.
 
-Contributing
+# Contributing
 
 Feel free to open issues and submit pull requests to help improve the project.
