@@ -20,7 +20,7 @@ global name_and_last_name , number , status_description , message_id ,Load_File,
 name_and_last_name = ''
 number =''
 status_description =''
-message_id=''
+# message_id=''
 Load_File = ''
 api_key = ''
 sms = ''
@@ -105,10 +105,10 @@ class FarazSms:
 def switch_language():
     global current_language
     if current_language == "English":
-        set_persian_language()
-        current_language = "Persian"
-    else:
         set_english_language()
+        current_language = "Persian"
+    elif current_language == "Persian":
+        set_persian_language()
         current_language = "English"
 
 # Function to set English language
@@ -160,7 +160,7 @@ def set_english_language():
     select_category_error = "Select a category."
     enter_message_error = "Enter the message to send."
     select_user_error = "No user selected."
-    message_sent_success = f"Message sent. Tracking code: {message_id}"
+    # message_sent_success = f"Message sent. Tracking code: {message_id}"
     send_message_error = "Error in sending message."
 
 
@@ -213,7 +213,7 @@ def set_persian_language():
     select_category_error = "یک دسته بندی انتخاب کنید"
     enter_message_error = "پیام ارسالی را وارد کنید"
     select_user_error = "کاربری را انتخاب نکردید"
-    message_sent_success = f"پیام ارسال شد کد پیگیری: {message_id}"
+    # message_sent_success = f"پیام ارسال شد کد پیگیری: {message_id}"
     send_message_error = "خطا در ارسال پیام"
 
 
@@ -358,13 +358,13 @@ def Sending_Status(id , bool):
     """
     Opens a new window with additional Sending Status details.
     """
-    print(bool)
+    # print(bool)
     def Update_Status(id , bool):
         
         # Get delivery details using the SMS API or use sample data
         try : 
             response_data = sms.Delivery_check(id)['data']['deliveries']
-            print(response_data)
+            # print(response_data)
         except :
             details_text.insert(tk.END, internet_api_error)
             return
@@ -398,9 +398,9 @@ def Sending_Status(id , bool):
             
             details_text.insert(tk.END, status_details_format)
         # Schedule the update_details function to be called again after 30 seconds
-        print('wwww')
+        # print('wwww')
         if bool : 
-            print('vvvv')
+            # print('vvvv')
             details_window.after(100000, Update_Status(id , False))
         
         
@@ -426,7 +426,7 @@ def Send_sms():
     get_input_data()
     
 
-    print(category_selector)
+    # print(category_selector)
 
     try :
         # Check if the dataframe 'df' exists; if not, display an error message
@@ -479,12 +479,12 @@ def Send_sms():
     if response_data.get('status') == 'OK' and response_data.get('code') == 200:
         data = response_data.get('data', {})
         message_id = data.get('message_id')
-        print(message_id)
+        # print(message_id)
         
         # Display success message with the message_id
         if message_id is not None:
-            save_label.config(text=message_sent_success)
-            Sending_Status(message_id , False)
+            save_label.config(text=f"Message sent. Tracking code: {message_id}")
+            # Sending_Status(message_id , False)
         else:
             save_label.config(text=send_message_error)
     else:
@@ -727,9 +727,9 @@ api_key = config.get('Settings', 'api_key')
 
 sms = FarazSms(api_key)
 
-print(api_key)
+# print(api_key)
 
-set_english_language()
+set_persian_language()
 
 root.mainloop()
 
